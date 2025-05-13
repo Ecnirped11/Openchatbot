@@ -3,4 +3,3 @@ requests
 openai
 python-dotenv
 phonenumbers
-Flask
