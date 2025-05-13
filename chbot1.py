@@ -3,7 +3,13 @@ import re
 from flask import Flask, request
 from dotenv import load_dotenv
 from telegram import Update, Bot
-from telegram.ext import ApplicationBuilder,CommandHandler,MessageHandler,ContextTypes,filters,
+from telegram.ext import (
+  ApplicationBuilder,
+  CommandHandler,
+  MessageHandler,
+  ContextTypes,
+  filters,
+)
 
 from chbot2 import ChatBotResponse
 from geoChat import GeoInformationProvider
