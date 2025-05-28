@@ -1,30 +1,19 @@
 import os
-import re
 import asyncio
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.error import TelegramError
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, filters, MessageHandler
-from chbot2 import ChatBotResponse
+from handlers.pattern.validatorpattern import *
+from telegram.ext import (
+  ApplicationBuilder, CommandHandler, ContextTypes, filters, MessageHandler
+  )
+from handlers.chbot2 import ChatBotResponse
 from geoChat import GeoInformationProvider
+from handlers.contents import text_value
 
 load_dotenv()
-
 access_token = os.getenv('BOT_TOKEN')
-
-valid_text_pattern = re.compile(r"[a-zA-Z0-9.]+")
-valid_phone_pattern = re.compile(r'\+[0-9]+')
-
-introduction = """
-Hello!
-I'm here to assist you with any type of question you may have. Whether it's a general inquiry or something specific, feel free to ask.
-
-Additionally, I can help determine the location of your phone number by analyzing the country code, just provide the number without any letters or special characters.
-
-Example: +124357490245 ✔️
-"""
-
-information = [introduction]
+information = [text_value.introduction]
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:

@@ -10,7 +10,7 @@ class ChatBotResponse:
     
   def post_content(self) -> str:
     data = {
-      "model" : 'openai-gpt-3',
+      "model" : 'openai-gpt-4o',
       "messages": [{ 'role': 'user','content': self.prompt }]
     }
     headers = {
